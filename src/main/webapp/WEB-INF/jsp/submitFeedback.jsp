@@ -29,7 +29,7 @@
 
 <portlet:actionURL var="postUrl"/>
 
-<h1><spring:message code="feedback.form.question"/></h1>
+<h1 class="feedback-question"><spring:message code="feedback.form.question"/></h1>
 
 <form:form action="${postUrl}" modelAttribute="submitFeedbackForm">       
     <spring:bind path="prefs.*">

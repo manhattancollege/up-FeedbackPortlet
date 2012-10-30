@@ -29,7 +29,7 @@
         <commons-collections.version>3.2.1</commons-collections.version>
         <ehcache.version>2.4.3</ehcache.version>
         <hibernate.version>3.2.7.ga</hibernate.version>
-        <hsqldb.version>1.8.0.7</hsqldb.version>
+        <hsqldb.version>2.2.4</hsqldb.version>
         <log4j.version>1.2.14</log4j.version>
         <javax.activation.version>1.1.1</javax.activation.version>
         <javax.mail>1.4</javax.mail>
@@ -215,11 +215,14 @@
         </dependency>
         
         <dependency>
-            <groupId>hsqldb</groupId>
+            <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>${hsqldb.version}</version>
-            <type>jar</type>
-            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>11.2.0.1.0</version>
         </dependency>
         
         <dependency>
@@ -290,6 +293,25 @@
     </dependencies>
     
     <build>
+        <filters>
+            <filter>${filters.file}</filter>
+        </filters>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <excludes>
+                    <exclude>datasource.properties</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>datasource.properties</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

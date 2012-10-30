@@ -41,6 +41,10 @@ table.feedback-list tr th{
     border-bottom: thin solid #999;
 }
 
+h1.feedback-question {
+    color: #003D28 !important;
+}
+
 .feedback-submit-button {
    margin:0 5px;
    padding:0.3em 2em;
